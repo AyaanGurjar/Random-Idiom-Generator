@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
     <title>Random Idiom Generator</title>
@@ -44,15 +44,8 @@
                 padding: 5px 10px;
             }
         }
-    </style>
-  </head>
-  <body>
-    <h1>Random Idiom</h1>
-    <p id="idiom"></p>
-    <center>
-    <button onclick="getIdiom()">Get a new idiom</button>
-    </center>
-    <script>
+    </style>   
+<script>
         var idioms = []; // empty array
         // function to fill idioms array
         function fillIdiomsArray(arr) {
@@ -71,7 +64,13 @@
             arr.push("Hold One’s Peace: Be silent");
         }
         fillIdiomsArray(idioms);
+        var buttonClicked = false;
         function getIdiom(){
+            if(!buttonClicked){
+                var audio = new Audio('drumroll.mp3');
+                audio.play();
+                buttonClicked = true;
+            }
             // Get a random idiom from the array
             var randomIdiom = idioms[Math.floor(Math.random() * idioms.length)];
         
@@ -81,9 +80,13 @@
             // Set the text of the element to the random idiom
             idiomElement.innerHTML = randomIdiom;
         }
-        // call getIdiom to show the first random idiom
-        getIdiom();
     </script>
+  </head>
+  <body>
+    <h1>Random Idiom</h1>
+    <p id="idiom"></p>
+    <center>
+    <button onclick="getIdiom()">Get a new idiom</button>
+    </center>
   </body>
 </html>
-
