@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Idiom Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: lightgray;
+        }
+        h1 {
+            font-size: 50px;
+            color: darkblue;
+            text-align: center;
+        }
+        p {
+            font-size: 40px;
+            color: darkgreen;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            margin: 20px;
+        }
+        button:hover {
+            background-color: blue;
+            cursor: pointer;
+        }
+        /* Add media query for responsive design */
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+            p {
+                font-size: 20px;
+            }
+            button {
+                font-size: 15px;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Random Idiom</h1>
+    <p id="idiom"></p>
+    <center>
+    <button onclick="getIdiom()">Get a new idiom</button>
+    </center>
+    <script>
+        var idioms = []; // empty array
+        // function to fill idioms array
+        function fillIdiomsArray(arr) {
+            arr.push("All Hat And No Cattle: Pretentious, full of bluster");
+            arr.push("Achilles’ Heel: The weak point of an otherwise powerful person or organization");
+            arr.push("A Storm in a Teacup: Unnecessary anger or worry about an unimportant or trivial matter");
+            arr.push("A Cat in Gloves Catches No Mice: You can’t get what you need if you’re too careful.");
+            arr.push("Act High and Mighty: Be arrogant, presume that one is better than others");
+            arr.push("All Sizzle And No Steak: Failing to live up to advance promotion or reputation");
+            arr.push("Be Like Chalk and Cheese: Things or people who are very different and have nothing in common");
+            arr.push("Carry Coal To Newcastle: Supply something that is unneeded; engage in useless labor");
+            arr.push("Dutch Uncle: A highly critical person");
+            arr.push("Elevator Music: Pleasant but boring recorded music that is played in public places.");
+            arr.push("Freudian Slip: Accidental use of an incorrect word; a revealing slip of the tongue");
+            arr.push("Have a Screw Loose: Be slightly unbalanced or crazy");
+            arr.push("Hold One’s Peace: Be silent");
+        }
+        fillIdiomsArray(idioms);
+        function getIdiom(){
+            // Get a random idiom from the array
+            var randomIdiom = idioms[Math.floor(Math.random() * idioms.length)];
+        
+            // Get the element with the id "idiom"
+            var idiomElement = document.getElementById("idiom");
+        
+            // Set the text of the element to the random idiom
+            idiomElement.innerHTML = randomIdiom;
+        }
+        // call getIdiom to show the first random idiom
+        getIdiom();
+    </script>
+  </body>
+</html>
+
